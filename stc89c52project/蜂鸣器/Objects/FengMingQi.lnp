@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\FengMingQi" 
+PRINT(".\Listings\FengMingQi.m51") RAMSIZE(256) 
