@@ -1,0 +1,102 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/13/2019  22:01:06  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFT_WORK\C51-KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\8X8LED PRINT (.\Listings\8X8LED.m51) RAMSIZE (256
+>> )
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\SOFT_WORK\C51-KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\8X8LED (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     002FH     UNIT         ?PR?_HC595SENDBYTE?MAIN
+            CODE    0032H     000CH     UNIT         ?C_C51STARTUP
+            CODE    003EH     000AH     UNIT         ?PR?MAIN?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\8X8LED (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?_HC595SENDBYTE?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\8X8LED (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  B:00B0H.6       PUBLIC        SRCLK
+  D:00B0H         PUBLIC        P3
+  C:003EH         PUBLIC        main
+  B:00B0H.5       PUBLIC        RCLK
+  B:00B0H.4       PUBLIC        SER
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/13/2019  22:01:06  PAGE 2
+
+
+  C:0003H         PUBLIC        _Hc595SendByte
+  -------         PROC          _HC595SENDBYTE
+  D:0007H         SYMBOL        dat
+  -------         DO            
+  D:0006H         SYMBOL        a
+  -------         ENDDO         
+  C:0003H         LINE#         25
+  C:0003H         LINE#         26
+  C:0003H         LINE#         28
+  C:0005H         LINE#         29
+  C:0007H         LINE#         30
+  C:0013H         LINE#         31
+  C:0013H         LINE#         32
+  C:001EH         LINE#         33
+  C:0022H         LINE#         35
+  C:0024H         LINE#         36
+  C:0025H         LINE#         37
+  C:0026H         LINE#         38
+  C:0028H         LINE#         39
+  C:002BH         LINE#         41
+  C:002DH         LINE#         42
+  C:002EH         LINE#         43
+  C:002FH         LINE#         44
+  C:0031H         LINE#         45
+  -------         ENDPROC       _HC595SENDBYTE
+  -------         PROC          MAIN
+  C:003EH         LINE#         53
+  C:003EH         LINE#         54
+  C:003EH         LINE#         56
+  C:003EH         LINE#         57
+  C:003EH         LINE#         58
+  C:0043H         LINE#         59
+  C:0046H         LINE#         60
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+Program Size: data=9.0 xdata=0 code=72
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
