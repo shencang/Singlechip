@@ -1,0 +1,149 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/16/2019  18:24:04  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFT_WORK\C51-KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\DuLiAnJian PRINT (.\Listings\DuLiAnJian.m51) RAMS
+>> IZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\SOFT_WORK\C51-KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\DuLiAnJian (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            IDATA   0008H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     000CH     UNIT         ?C_C51STARTUP
+                    0012H     0001H                  *** GAP ***
+            CODE    0013H     0003H     ABSOLUTE     
+            CODE    0016H     0024H     UNIT         ?PR?INT1?MAIN
+            CODE    003AH     0024H     UNIT         ?PR?INT0?MAIN
+            CODE    005EH     000BH     UNIT         ?PR?_DELAY?MAIN
+            CODE    0069H     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    0071H     0007H     UNIT         ?PR?INT1INIT?MAIN
+            CODE    0078H     0007H     UNIT         ?PR?INT0INIT?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\DuLiAnJian (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?PR?INT1?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+*** NEW ROOT ***************************************************
+
+?PR?INT0?MAIN
+  +--> ?PR?_DELAY?MAIN
+
+*** NEW ROOT ***************************************************
+
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/16/2019  18:24:04  PAGE 2
+
+
+  +--> ?PR?INT0INIT?MAIN
+  +--> ?PR?INT1INIT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\DuLiAnJian (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:005EH         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  B:00B0H.2       PUBLIC        k3
+  B:00B0H.3       PUBLIC        k4
+  C:0069H         PUBLIC        main
+  B:00A0H.1       PUBLIC        sled
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:00A0H.2       PUBLIC        led
+  B:00A8H.0       PUBLIC        EX0
+  B:0088H.0       PUBLIC        IT0
+  B:00A8H.2       PUBLIC        EX1
+  B:0088H.2       PUBLIC        IT1
+  C:003AH         PUBLIC        Int0
+  C:0016H         PUBLIC        Int1
+  D:00C8H         PUBLIC        T2CON
+  C:0078H         PUBLIC        Int0Init
+  C:0071H         PUBLIC        Int1Init
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:005EH         LINE#         12
+  C:005EH         LINE#         13
+  C:0068H         LINE#         14
+  -------         ENDPROC       _DELAY
+  -------         PROC          INT1INIT
+  C:0071H         LINE#         15
+  C:0071H         LINE#         16
+  C:0073H         LINE#         17
+  C:0075H         LINE#         18
+  C:0077H         LINE#         19
+  -------         ENDPROC       INT1INIT
+  -------         PROC          INT0INIT
+  C:0078H         LINE#         20
+  C:0078H         LINE#         21
+  C:007AH         LINE#         22
+  C:007CH         LINE#         23
+  C:007EH         LINE#         24
+  -------         ENDPROC       INT0INIT
+  -------         PROC          MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/16/2019  18:24:04  PAGE 3
+
+
+  C:0069H         LINE#         25
+  C:0069H         LINE#         26
+  C:006CH         LINE#         27
+  C:006FH         LINE#         28
+  -------         ENDPROC       MAIN
+  -------         PROC          INT1
+  C:0016H         LINE#         32
+  C:0023H         LINE#         33
+  C:002AH         LINE#         34
+  C:002DH         LINE#         35
+  C:002FH         LINE#         36
+  C:002FH         LINE#         37
+  -------         ENDPROC       INT1
+  -------         PROC          INT0
+  C:003AH         LINE#         38
+  C:0047H         LINE#         39
+  C:004EH         LINE#         40
+  C:0051H         LINE#         41
+  C:0053H         LINE#         42
+  C:0053H         LINE#         43
+  -------         ENDPROC       INT0
+  -------         ENDMOD        MAIN
+
+Program Size: data=9.0 xdata=0 code=126
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
