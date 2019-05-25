@@ -1,0 +1,127 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    05/25/2019  17:51:16  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFT_WORK\C51-KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\news PRINT (.\Listings\news.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  D:\SOFT_WORK\C51-KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\news (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?MAIN
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0010H     UNIT         ?PR?TIMER1INIT?MAIN
+            CODE    0013H     0005H     UNIT         ?PR?MAIN?MAIN
+                    0018H     0003H                  *** GAP ***
+            CODE    001BH     0003H     ABSOLUTE     
+            CODE    001EH     0027H     UNIT         ?PR?TIME1?MAIN
+            CODE    0045H     000CH     UNIT         ?C_C51STARTUP
+            CODE    0051H     000BH     UNIT         ?PR?_DELAY?MAIN
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\news (MAIN)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN
+  +--> ?PR?TIMER1INIT?MAIN
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\news (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/25/2019  17:51:16  PAGE 2
+
+
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  C:0051H         PUBLIC        _delay
+  D:00B8H         PUBLIC        IP
+  C:0013H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  C:001EH         PUBLIC        Time1
+  B:00A8H.3       PUBLIC        ET1
+  C:0003H         PUBLIC        Timer1Init
+  D:008DH         PUBLIC        TH1
+  D:008BH         PUBLIC        TL1
+  B:0088H.6       PUBLIC        TR1
+  D:00C8H         PUBLIC        T2CON
+  B:00A0H.0       PUBLIC        led2
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY
+  D:0006H         SYMBOL        i
+  C:0051H         LINE#         8
+  C:0051H         LINE#         9
+  C:005BH         LINE#         10
+  -------         ENDPROC       _DELAY
+  -------         PROC          TIMER1INIT
+  C:0003H         LINE#         12
+  C:0003H         LINE#         13
+  C:0006H         LINE#         14
+  C:0009H         LINE#         15
+  C:000CH         LINE#         16
+  C:000EH         LINE#         17
+  C:0010H         LINE#         18
+  C:0012H         LINE#         20
+  -------         ENDPROC       TIMER1INIT
+  -------         PROC          MAIN
+  C:0013H         LINE#         21
+  C:0013H         LINE#         22
+  C:0016H         LINE#         23
+  -------         ENDPROC       MAIN
+  -------         PROC          TIME1
+  -------         DO            
+  D:0008H         SYMBOL        i
+  -------         ENDDO         
+  C:001EH         LINE#         27
+  C:0022H         LINE#         29
+  C:0025H         LINE#         30
+  C:0028H         LINE#         31
+  C:0030H         LINE#         32
+  C:0038H         LINE#         33
+  C:003EH         LINE#         34
+  C:0040H         LINE#         35
+  C:0040H         LINE#         36
+  -------         ENDPROC       TIME1
+  -------         ENDMOD        MAIN
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?MAIN
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  05/25/2019  17:51:16  PAGE 3
+
+
+
+Program Size: data=11.0 xdata=0 code=89
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)
