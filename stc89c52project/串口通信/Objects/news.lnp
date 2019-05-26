@@ -1,0 +1,3 @@
+".\Objects\main.obj" 
+TO ".\Objects\news" 
+PRINT(".\Listings\news.m51") RAMSIZE(256) 
