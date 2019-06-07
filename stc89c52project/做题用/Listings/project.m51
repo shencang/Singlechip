@@ -1,0 +1,50 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    06/07/2019  20:47:24  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+D:\SOFT_WORK\C51-KEIL\C51\BIN\BL51.EXE .\Objects\main.obj TO .\Objects\project PRINT (.\Listings\project.m51) RAMSIZE (2
+>> 56)
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     2508H     ABSOLUTE     
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  D:0081H         SYMBOL        SP
+  C:2000H         LINE#         3
+  C:2003H         LINE#         4
+  C:2005H         LINE#         5
+  C:2008H         LINE#         6
+  C:200AH         LINE#         7
+  C:200CH         LINE#         8
+  C:2500H         LINE#         10
+  C:2503H         LINE#         11
+  C:2505H         LINE#         12
+  C:2507H         LINE#         13
+  -------         ENDMOD        MAIN
+
+Program Size: data=8.0 xdata=0 code=9480
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

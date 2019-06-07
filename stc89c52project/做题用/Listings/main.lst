@@ -1,0 +1,42 @@
+A51 MACRO ASSEMBLER  MAIN                                                                 06/07/2019 20:47:00 PAGE     1
+
+
+MACRO ASSEMBLER A51 V8.2.7.0
+OBJECT MODULE PLACED IN .\Objects\main.obj
+ASSEMBLER INVOKED BY: D:\soft_work\c51-keil\C51\BIN\A51.EXE main.a51 SET(SMALL) DEBUG PRINT(.\Listings\main.lst) OBJECT(
+                      .\Objects\main.obj) EP
+
+LOC  OBJ            LINE     SOURCE
+
+                       1     
+2000                   2                       ORG    2000H
+2000 758140            3                       MOV    SP,#40H
+2003 7430              4                       MOV    A,#30H
+2005 122500            5                       LCALL  2500H
+2008 2410              6                       ADD     A,#10H
+200A F5F0              7                       MOV    B,A
+200C 80FE              8                       SJMP    $
+2500                   9                       ORG    2500H
+2500 90200A           10                       MOV    DPTR,#200AH
+2503 C082             11                       PUSH    DPL
+2505 C083             12                       PUSH    DPH
+2507 22               13                       RET
+*** WARNING #A41 IN 13 (main.a51, LINE 13): MISSING 'END' STATEMENT
+A51 MACRO ASSEMBLER  MAIN                                                                 06/07/2019 20:47:00 PAGE     2
+
+SYMBOL TABLE LISTING
+------ ----- -------
+
+
+N A M E             T Y P E  V A L U E   ATTRIBUTES
+
+B. . . . . . . . .  D ADDR   00F0H   A   
+DPH. . . . . . . .  D ADDR   0083H   A   
+DPL. . . . . . . .  D ADDR   0082H   A   
+SP . . . . . . . .  D ADDR   0081H   A   
+
+
+REGISTER BANK(S) USED: 0 
+
+
+ASSEMBLY COMPLETE.  1 WARNING(S), 0 ERROR(S)
