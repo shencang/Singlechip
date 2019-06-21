@@ -12,7 +12,7 @@ sbit k2=P3^2; //加
 sbit k3=P3^1; //减
 
 
-sbit DHT11_DQ_OUT=P3^2;
+sbit DHT11_DQ_OUT=P2^0;
 sbit led1=P3^6;
 sbit led2=P3^7;
 
@@ -117,9 +117,9 @@ void lcd_init()	   // LCD1602初始化
 void DHT11_Rst()	   
 {                 
     DHT11_DQ_OUT=0; 	//拉低DQ
-    delay_ms(20);    	//拉低至少18ms
+    delay_ms(18);  	//拉低至少18ms
     DHT11_DQ_OUT=1; 	//DQ=1 
-	delay(3);     	//主机拉高20~40us
+	delay(4);     	//主机拉高20~40us
 }
 
 //等待DHT11的回应
@@ -128,14 +128,14 @@ void DHT11_Rst()
 uint8 DHT11_Check() 	   
 {   
 	uint8 retry=0;	 
-    while (DHT11_DQ_OUT&&retry<100)//DHT11会拉低40~50us
+    while (DHT11_DQ_OUT&&retry<80)//DHT11会拉低40~50us
 	{
 		retry++;
 		_nop_();
 	};	 
 	if(retry>=100)return 1;
 	else retry=0;
-    while (!DHT11_DQ_OUT&&retry<100)//DHT11拉低后会再次拉高40~50us
+    while (!DHT11_DQ_OUT&&retry<80)//DHT11拉低后会再次拉高40~50us
 	{
 		retry++;
 		_nop_();
@@ -159,13 +159,13 @@ uint8 DHT11_Init()
 uint8 DHT11_Read_Bit(void) 			 
 {
  	uint8 retry=0;
-	while(DHT11_DQ_OUT&&retry<100)//等待变为低电平 12-14us 开始
+	while(DHT11_DQ_OUT&&retry<80)//等待变为低电平 12-14us 开始
 	{
 		retry++;
 		_nop_();
 	}
 	retry=0;
-	while((!DHT11_DQ_OUT)&&retry<100)//等待变高电平	 26-28us表示0,116-118us表示1
+	while((!DHT11_DQ_OUT)&&retry<80)//等待变高电平	 26-28us表示0,116-118us表示1
 	{
 		retry++;
 		_nop_();
@@ -554,7 +554,7 @@ void main()
 	led2=0;
 	lcd_init();
 	//注意这里为了使得在没有温湿度传感器的前提下可以运行进行判断取反，当传感器可用时记得使其正常
-	while(!DHT11_Init())	//检测DHT11是否存在
+	while(DHT11_Init())	//检测DHT11是否存在
 	{
 		for(i=0;i<5;i++)
 		{

@@ -1,4 +1,4 @@
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 1   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 1   
 
 
 C51 COMPILER V9.59.0.0, COMPILATION OF MODULE 1
@@ -21,7 +21,7 @@ line level    source
   12          sbit k3=P3^1; //减
   13          
   14          
-  15          sbit DHT11_DQ_OUT=P3^2;
+  15          sbit DHT11_DQ_OUT=P2^0;
   16          sbit led1=P3^6;
   17          sbit led2=P3^7;
   18          
@@ -62,7 +62,7 @@ line level    source
   53          uint8 code smgduan[10]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f};
   54          void datapros()
   55          {
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 2   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 2   
 
   56   1        uint16 temp;
   57   1        static uint8 i;
@@ -126,13 +126,13 @@ line level    source
  115   1      }
  116          //复位DHT11
  117          void DHT11_Rst()     
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 3   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 3   
 
  118          {                 
  119   1          DHT11_DQ_OUT=0;   //拉低DQ
- 120   1          delay_ms(20);     //拉低至少18ms
+ 120   1          delay_ms(18);   //拉低至少18ms
  121   1          DHT11_DQ_OUT=1;   //DQ=1 
- 122   1        delay(3);       //主机拉高20~40us
+ 122   1        delay(4);       //主机拉高20~40us
  123   1      }
  124          
  125          //等待DHT11的回应
@@ -141,14 +141,14 @@ line level    source
  128          uint8 DHT11_Check()      
  129          {   
  130   1        uint8 retry=0;   
- 131   1          while (DHT11_DQ_OUT&&retry<100)//DHT11会拉低40~50us
+ 131   1          while (DHT11_DQ_OUT&&retry<80)//DHT11会拉低40~50us
  132   1        {
  133   2          retry++;
  134   2          _nop_();
  135   2        };   
  136   1        if(retry>=100)return 1;
  137   1        else retry=0;
- 138   1          while (!DHT11_DQ_OUT&&retry<100)//DHT11拉低后会再次拉高40~50us
+ 138   1          while (!DHT11_DQ_OUT&&retry<80)//DHT11拉低后会再次拉高40~50us
  139   1        {
  140   2          retry++;
  141   2          _nop_();
@@ -172,13 +172,13 @@ line level    source
  159          uint8 DHT11_Read_Bit(void)       
  160          {
  161   1        uint8 retry=0;
- 162   1        while(DHT11_DQ_OUT&&retry<100)//等待变为低电平 12-14us 开始
+ 162   1        while(DHT11_DQ_OUT&&retry<80)//等待变为低电平 12-14us 开始
  163   1        {
  164   2          retry++;
  165   2          _nop_();
  166   2        }
  167   1        retry=0;
- 168   1        while((!DHT11_DQ_OUT)&&retry<100)//等待变高电平  26-28us表示0,116-118us表示1
+ 168   1        while((!DHT11_DQ_OUT)&&retry<80)//等待变高电平   26-28us表示0,116-118us表示1
  169   1        {
  170   2          retry++;
  171   2          _nop_();
@@ -190,7 +190,7 @@ line level    source
  177          
  178          //从DHT11读取一个字节
  179          //返回值：读到的数据
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 4   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 4   
 
  180          uint8 DHT11_Read_Byte(void)    
  181          {        
@@ -254,7 +254,7 @@ line level    source
  239          {
  240   1        uint8 i;
  241   1        for(i=0;i<8;i++)
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 5   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 5   
 
  242   1        {
  243   2          dq=0;
@@ -318,7 +318,7 @@ line level    source
  301   3            delay(1000);
  302   3            if(k2==0)
  303   3            {
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 6   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 6   
 
  304   4              temph++;
  305   4              if(temph>=80)temph=80;
@@ -382,7 +382,7 @@ line level    source
  363   3            while(!k3);
  364   3          }
  365   2        }
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 7   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 7   
 
  366   1        if(mode==4)     //对湿度下限设定
  367   1        {
@@ -446,7 +446,7 @@ line level    source
  425   1        humi_buf[1]=humi%10+0x30;
  426   1        
  427   1        dio=a*0.0625;
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 8   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 8   
 
  428   1        k=dio*10000;//取小数点后两位有效数字
  429   1      
@@ -510,7 +510,7 @@ line level    source
  487   2          wrd(templbuf[0]);
  488   2          wrd(templbuf[1]);     
  489   2        }
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 9   
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 9   
 
  490   1        if(mode==3)       //湿度上限显示
  491   1        {
@@ -574,43 +574,44 @@ line level    source
  549          
  550          void main()
  551          {
-C51 COMPILER V9.59.0.0   1                                                                 06/18/2019 11:33:21 PAGE 10  
+C51 COMPILER V9.59.0.0   1                                                                 06/21/2019 17:00:19 PAGE 10  
 
  552   1        uint8 i=0;
  553   1        led1=0;
  554   1        led2=0;
  555   1        lcd_init();
- 556   1        while(!DHT11_Init())  //检测DHT11是否存在
- 557   1        {
- 558   2          for(i=0;i<5;i++)
- 559   2          {
- 560   3            wrc(0x80+i);
- 561   3            wrd(str3[i]); 
- 562   3          }     
- 563   2        }
- 564   1        wrc(0x01);
- 565   1        lcd_init_display();    //LCD初始化显示
- 566   1        i=0;
- 567   1        while(1)
- 568   1        { 
- 569   2          i++;
- 570   2          key_pros();
- 571   2          baojinpros(); //报警处理
- 572   2          if(i==15)
- 573   2          {
- 574   3            i=0;
- 575   3            data_pros();     //读取一次DHT11数据最少要大于100ms
- 576   3            
- 577   3        
- 578   3          }
- 579   2          delay(1000); 
- 580   2          
- 581   2        } 
- 582   1      }
+ 556   1        //注意这里为了使得在没有温湿度传感器的前提下可以运行进行判断取反，当传感器可用时记得使其正常
+ 557   1        while(DHT11_Init()) //检测DHT11是否存在
+ 558   1        {
+ 559   2          for(i=0;i<5;i++)
+ 560   2          {
+ 561   3            wrc(0x80+i);
+ 562   3            wrd(str3[i]); 
+ 563   3          }     
+ 564   2        }
+ 565   1        wrc(0x01);
+ 566   1        lcd_init_display();    //LCD初始化显示
+ 567   1        i=0;
+ 568   1        while(1)
+ 569   1        { 
+ 570   2          i++;
+ 571   2          key_pros();
+ 572   2          baojinpros(); //报警处理
+ 573   2          if(i==15)
+ 574   2          {
+ 575   3            i=0;
+ 576   3            data_pros();     //读取一次DHT11数据最少要大于100ms
+ 577   3            
+ 578   3        
+ 579   3          }
+ 580   2          delay(1000); 
+ 581   2          
+ 582   2        } 
+ 583   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =   2204    ----
+   CODE SIZE        =   2205    ----
    CONSTANT SIZE    =    120    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----
